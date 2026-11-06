@@ -12,7 +12,7 @@ if(BUILD_TESTING)
     add_launch_test(test/test_navigation.launch.py
       TARGET test_navigation_${_controller}
       ARGS "controller:=${_controller}"
-      TIMEOUT 300
+      TIMEOUT 120
     )
   endforeach()
 endif()
