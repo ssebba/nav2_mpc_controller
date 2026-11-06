@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>mpc_benchmark</name>
+  <version>0.1.0</version>
+  <description>Benchmark of Nav2 local controllers: scenario runner, metrics recorder (lifecycle components) and a compute-time profiling controller plugin.</description>
+  <maintainer email="sebastiano.comai@outlook.it">Sebastiano Comai</maintainer>
+  <license>Apache-2.0</license>
+  <url type="repository">https://github.com/ssebba/nav2_mpc_controller</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>generate_parameter_library</depend>
+  <depend>geometry_msgs</depend>
+  <depend>lifecycle_msgs</depend>
+  <depend>mpc_core</depend>
+  <depend>nav2_core</depend>
+  <depend>nav2_msgs</depend>
+  <depend>nav2_ros_common</depend>
+  <depend>nav_msgs</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclcpp_components</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>gz_msgs_vendor</depend>
+  <depend>gz_transport_vendor</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+
+  <exec_depend>mpc_bringup</exec_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>nav2_costmap_2d</test_depend>
+  <test_depend>nav2_mpc_controller</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <nav2_core plugin="${prefix}/profiling_controller_plugin.xml"/>
+  </export>
+</package>

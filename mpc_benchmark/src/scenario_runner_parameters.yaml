@@ -1,0 +1,84 @@
+scenario_runner:
+  scenario:
+    type: string
+    default_value: "scenario"
+    description: "Scenario name, written in the results."
+  controller:
+    type: string
+    default_value: "unknown"
+    description: "Controller label, written in the results."
+  run_id:
+    type: string
+    default_value: "run"
+    description: "Identifier of the run (also used by the metrics recorder)."
+  output_dir:
+    type: string
+    default_value: "/tmp/mpc_benchmark"
+    description: "Directory of results.csv."
+  type:
+    type: string
+    default_value: "navigate_through_poses"
+    description: "follow_path: track a generated path with the controller server only; navigate_through_poses: full Nav2 stack."
+    validation:
+      one_of<>: [["follow_path", "navigate_through_poses"]]
+  frame:
+    type: string
+    default_value: "map"
+    description: "Frame of the path / waypoints."
+  path:
+    shape:
+      type: string
+      default_value: "figure_eight"
+      description: "Generated reference path (follow_path only)."
+      validation:
+        one_of<>: [["figure_eight", "sine", "straight"]]
+    size:
+      type: double
+      default_value: 1.5
+      description: "Figure eight: half width [m]; sine: amplitude [m]."
+      validation:
+        gt<>: [0.0]
+    length:
+      type: double
+      default_value: 6.0
+      description: "Sine/straight: length along x [m]."
+      validation:
+        gt<>: [0.0]
+    wavelength:
+      type: double
+      default_value: 3.0
+      description: "Sine wavelength [m]."
+      validation:
+        gt<>: [0.0]
+    step:
+      type: double
+      default_value: 0.05
+      description: "Waypoint spacing [m]."
+      validation:
+        gt<>: [0.0]
+  waypoints:
+    type: double_array
+    default_value: [0.0, 0.0, 0.0]
+    description: "Flattened [x, y, yaw] triplets (navigate_through_poses only)."
+    validation:
+      not_empty<>: []
+  timeout:
+    type: double
+    default_value: 240.0
+    description: "The run fails if the goal is not reached within this time [s]."
+    validation:
+      gt<>: [0.0]
+  start_delay:
+    type: double
+    default_value: 3.0
+    description: "Wait after Nav2 is ready, to let costmaps and localization settle [s]."
+    validation:
+      gt_eq<>: [0.0]
+  recorder_node:
+    type: string
+    default_value: "metrics_recorder"
+    description: "Name of the MetricsRecorder lifecycle node driven by the runner."
+  controller_id:
+    type: string
+    default_value: "FollowPath"
+    description: "Controller plugin used by follow_path scenarios."

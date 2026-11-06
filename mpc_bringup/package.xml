@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>mpc_bringup</name>
+  <version>0.1.0</version>
+  <description>Launch files, configurations and integration tests for nav2_mpc_controller (TurtleBot3, Gazebo and Nav2 loopback simulator).</description>
+  <maintainer email="sebastiano.comai@outlook.it">Sebastiano Comai</maintainer>
+  <license>Apache-2.0</license>
+  <url type="repository">https://github.com/ssebba/nav2_mpc_controller</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>nav2_loopback_sim</exec_depend>
+  <exec_depend>nav2_minimal_tb3_sim</exec_depend>
+  <exec_depend>nav2_mpc_controller</exec_depend>
+  <exec_depend>nav2_mppi_controller</exec_depend>
+  <exec_depend>nav2_regulated_pure_pursuit_controller</exec_depend>
+  <exec_depend>dwb_core</exec_depend>
+  <exec_depend>dwb_critics</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <test_depend>launch_testing_ament_cmake</test_depend>
+  <test_depend>launch_testing_ros</test_depend>
+  <test_depend>nav2_simple_commander</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

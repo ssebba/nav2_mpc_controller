@@ -1,0 +1,16 @@
+ground_truth_relay:
+  gz_topic:
+    type: string
+    default_value: "/world/default/dynamic_pose/info"
+    description: "Gazebo topic with the poses of the dynamic models (gz.msgs.Pose_V)."
+    read_only: true
+  model:
+    type: string
+    default_value: "turtlebot3_waffle"
+    description: "Name of the model whose pose is relayed."
+    read_only: true
+  frame_id:
+    type: string
+    default_value: "world"
+    description: "Frame of the relayed pose (the simulation world)."
+    read_only: true

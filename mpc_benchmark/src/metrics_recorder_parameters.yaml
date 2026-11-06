@@ -1,0 +1,49 @@
+metrics_recorder:
+  output_dir:
+    type: string
+    default_value: "/tmp/mpc_benchmark"
+    description: "Directory of the CSV files."
+  run_id:
+    type: string
+    default_value: "run"
+    description: "Prefix of the CSV files of this run."
+  path_frame:
+    type: string
+    default_value: "map"
+    description: "Frame of the robot pose and of the reference path."
+  robot_frame:
+    type: string
+    default_value: "base_footprint"
+    description: "Robot base frame."
+  ground_truth_topic:
+    type: string
+    default_value: ""
+    description: "Robot pose from the simulator (geometry_msgs/PoseStamped, e.g. ground_truth_relay); if set, it replaces TF: wheel odometry drifts when the wheels slip."
+  reference_path_topic:
+    type: string
+    default_value: ""
+    description: "Fixed reference path for the cross-track error (empty: not measured)."
+  cmd_topic:
+    type: string
+    default_value: "cmd_vel_nav"
+    description: "Controller output (before the velocity smoother)."
+  compute_time_topic:
+    type: string
+    default_value: "FollowPath/compute_time"
+    description: "Compute time published by mpc_benchmark::ProfilingController."
+  scan_topic:
+    type: string
+    default_value: "scan"
+    description: "Laser scan used for the clearance (empty: not measured)."
+  robot_radius:
+    type: double
+    default_value: 0.22
+    description: "Clearance = minimum scan range - robot_radius [m]."
+    validation:
+      gt_eq<>: [0.0]
+  rate:
+    type: double
+    default_value: 20.0
+    description: "Sampling rate [Hz]."
+    validation:
+      gt<>: [0.0]

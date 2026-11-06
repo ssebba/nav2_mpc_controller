@@ -1,0 +1,15 @@
+# Applied on top of nav2_bringup/params/nav2_params.yaml for every controller, so the
+# planner, costmaps, behavior tree and velocity smoother are identical in all experiments.
+amcl:
+  ros__parameters:
+    set_initial_pose: true
+    initial_pose: {x: -2.0, y: -0.5, z: 0.0, yaw: 0.0}
+
+# TurtleBot3 Waffle limits; equal to the controller limits so the smoother does not
+# alter the commands of any controller.
+velocity_smoother:
+  ros__parameters:
+    max_velocity: [0.26, 0.0, 1.8]
+    min_velocity: [-0.26, 0.0, -1.8]
+    max_accel: [1.0, 0.0, 3.0]
+    max_decel: [-1.0, 0.0, -3.0]

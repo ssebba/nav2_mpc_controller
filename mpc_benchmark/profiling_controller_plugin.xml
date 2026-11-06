@@ -1,0 +1,7 @@
+<class_libraries>
+  <library path="profiling_controller">
+    <class type="mpc_benchmark::ProfilingController" base_class_type="nav2_core::Controller">
+      <description>Wraps any Nav2 controller (parameter inner_plugin) and publishes its compute time.</description>
+    </class>
+  </library>
+</class_libraries>

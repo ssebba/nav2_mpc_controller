@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>nav2_mpc_controller</name>
+  <version>0.1.0</version>
+  <description>Model Predictive Control local controller plugin for Nav2 (LTV-MPC and NMPC/RTI on OSQP).</description>
+  <maintainer email="sebastiano.comai@outlook.it">Sebastiano Comai</maintainer>
+  <license>Apache-2.0</license>
+  <url type="repository">https://github.com/ssebba/nav2_mpc_controller</url>
+  <author email="sebastiano.comai@outlook.it">Sebastiano Comai</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>mpc_core</depend>
+  <depend>generate_parameter_library</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav2_core</depend>
+  <depend>nav2_costmap_2d</depend>
+  <depend>nav2_ros_common</depend>
+  <depend>nav_msgs</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>std_msgs</depend>
+  <depend>visualization_msgs</depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>nav2_controller</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <nav2_core plugin="${prefix}/mpc_controller_plugin.xml"/>
+  </export>
+</package>
